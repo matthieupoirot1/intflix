@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SeriesComponent } from './series/series.component';
+import { SeasonsComponent } from './seasons/seasons.component';
+import { SerieDetailComponent } from './serie-detail/serie-detail.component';
+import { SeasonDetailComponent } from './season-detail/season-detail.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SeriesComponent,
+    SeasonsComponent,
+    SerieDetailComponent,
+    SeasonDetailComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

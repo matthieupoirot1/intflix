@@ -1,0 +1,5 @@
+<div id="seasonsList">
+    <a *ngFor="let season of seasons" routerLink="/seasons/{{season.id}}">
+      {{idSerie ? "" : "Serie n°" + season.fkSerie + ":" }} {{season.name}}
+    </a>
+</div>

@@ -1,0 +1,20 @@
+<header>
+  <div id="logo">
+    <img src="https://fontmeme.com/permalink/210326/43112db455f7daaf0e54cc2332355b91.png" alt="netflix-font" border="0">
+  </div>
+  <div id="links">
+      <a routerLink="/series">Séries</a>
+      <a routerLink="/seasons">Saisons</a>
+      <span>Episodes</span>
+  </div>
+  <div class="authActions" *ngIf="!authService.isAuth; else logOut">
+      <span (click)="signInClick()">Connexion</span>
+      <span>Inscription</span>
+  </div>
+  <ng-template #logOut>
+    <div class="authActions">
+      <span (click)="signOutClick()">Deconnexion</span>
+    </div>
+  </ng-template>
+
+</header>

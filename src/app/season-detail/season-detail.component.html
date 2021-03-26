@@ -1,0 +1,17 @@
+<div id="episodesList">
+  <h1>{{serie.title}}</h1>
+  <app-seasons [idSerie]=serie.id></app-seasons>
+  <h2>{{season.name}}</h2>
+  <table>
+    <tr *ngFor="let episode of episodes" class="episode">
+      <td>
+        <h3>{{episode.num}} - {{episode.title}}</h3>
+      </td>
+      <td>
+        <a [ngClass]="{status: true, seen:episode.seen, notSeen:!episode.seen}" (click)="changeSeenState(episode.id)">
+          {{episode.seen ? "Vu" : "Pas vu"}}
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
