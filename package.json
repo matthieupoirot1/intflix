@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"node ./src/backend/index.js\"",
+    "remotestart": "concurrently \"ng serve --host 0.0.0.0\" \"node ./src/backend/index.js\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
