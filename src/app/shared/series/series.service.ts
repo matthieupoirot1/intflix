@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import {Serie} from './serie.model';
+import {ApiService} from '../api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeriesService {
 
-  public series: Serie[] = [
-    new Serie(1, 'Games of Thrones'),
-    new Serie(2, 'Dynastie'),
-    new Serie(3, 'The Last Kingdom')
-  ];
-  constructor() { }
+  public series: Serie[] = [];
+  constructor(private apiService: ApiService) {
+    this.refreshFromApi();
+  }
+
+  refreshFromApi(): void{
+    this.apiService.getData('/series').subscribe((series) => {
+      this.series = series;
+    });
+  }
 
   getAll(): Serie[] {
     return this.series;
