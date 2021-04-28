@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,6 @@ import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.co
 import { EditEpisodeComponent } from './episodes/comp/edit-episode/edit-episode.component';
 import { ReactEditEpisodeComponent } from './episodes/comp/react-edit-episode/react-edit-episode.component';
 import { InscriptionPageComponent } from './users/comp/inscription-page/inscription-page.component';
-import {HttpClientModule} from '@angular/common/http';
 import { TestgetComponent } from './testget/testget.component';
 
 @NgModule({
