@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Season} from '../shared/seasons/season.model';
-import {SeasonsService} from '../shared/seasons/seasons.service';
+import {Season} from '../../../seasons/model/season.model';
+import {SeasonsService} from '../../../seasons/service/seasons.service';
 import {ActivatedRoute} from '@angular/router';
-import {Serie} from '../shared/series/serie.model';
-import {SeriesService} from '../shared/series/series.service';
+import {Serie} from '../../model/serie.model';
+import {SeriesService} from '../../service/series.service';
 
 @Component({
   selector: 'app-serie-detail',
@@ -18,6 +18,6 @@ export class SerieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') ?? '1', 10);
-    this.serie = this.seriesService.getSerieById(this.id);
+    this.serie = this.seriesService.getById(this.id);
   }
 }

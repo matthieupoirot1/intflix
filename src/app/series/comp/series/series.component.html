@@ -1,0 +1,10 @@
+<div id="seriesList">
+  <div *ngFor="let serie of series" >
+    <a routerLink="/series/{{serie.id}}">
+      {{serie.title}}
+    </a>
+  </div>
+
+  <img src="/src/assets/bin.png" (dragenter)="clickRemoveSerieFromDrag()">
+
+</div>

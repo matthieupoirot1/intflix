@@ -1,0 +1,24 @@
+<h3 *ngIf="nbSecondes >= 10">
+  Temps écoulés ! :(((
+</h3>
+<div *ngIf="nbSecondes < 10">
+  <h4>Vous avez 10 secondes pour renseigner le formulaire</h4>
+  <h3> Temps passé sur cette page : {{nbSecondes}} secondes. </h3>
+  <form #heroForm="ngForm">
+    <input type="text" id="title"
+           required
+           class="form-control ng-untouched ng-pristine ng-valid"
+           [(ngModel)]="episodeModel.title" name="title"
+           #title="ngModel">
+    <div [hidden]="title.valid || title.pristine"
+         class="alert alert-danger">
+      Il faut entrer un titre pour l'épisode.
+    </div>
+    <div>
+      <label>Episode vu : </label>
+      <input type="checkbox" name="seen" [(ngModel)]="episodeModel.seen">
+    </div>
+    <input type="submit" (click)="onSubmit()">
+  </form>
+</div>
+

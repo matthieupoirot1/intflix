@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Season} from './season.model';
+import {Season} from '../model/season.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,15 +27,15 @@ export class SeasonsService {
     return this.seasons;
   }
 
-  getSeasonsBySerieId(fkSerie: number): Season[]{
-    return this.seasons.filter((season) => {
-      return season.fkSerie === fkSerie;
-    });
-  }
-
-  getSeasonById(id: number): Season {
+  getById(id: number): Season {
     return this.seasons.find((season) => {
       return season.id === id;
     }) ?? this.seasons[0];
+  }
+
+  getByIdSerie(fkSerie: number): Season[]{
+    return this.seasons.filter((season) => {
+      return season.fkSerie === fkSerie;
+    });
   }
 }

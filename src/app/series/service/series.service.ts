@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Serie} from './serie.model';
+import {Serie} from '../model/serie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,16 @@ export class SeriesService {
     return this.series;
   }
 
-  getSerieById(id: number): Serie{
+  getById(id: number): Serie {
+    // return this.series[id - 1];
     return this.series.find((serie) => {
       return serie.id === id;
     }) ?? this.series[0];
+  }
+
+  removeById(id: number): void{
+    this.series = this.series.filter((serie) => {
+      return serie.id !== id;
+    });
   }
 }

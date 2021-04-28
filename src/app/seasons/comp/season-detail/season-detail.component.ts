@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {SeasonsService} from '../shared/seasons/seasons.service';
-import {SeriesService} from '../shared/series/series.service';
+import {SeasonsService} from '../../service/seasons.service';
+import {SeriesService} from '../../../series/service/series.service';
 import {ActivatedRoute} from '@angular/router';
-import {Serie} from '../shared/series/serie.model';
-import {Season} from '../shared/seasons/season.model';
-import {EpisodesService} from '../shared/episodes/episodes.service';
-import {Episode} from '../shared/episodes/episode.model';
+import {Serie} from '../../../series/model/serie.model';
+import {Season} from '../../model/season.model';
+import {EpisodesService} from '../../../episodes/service/episodes.service';
+import {Episode} from '../../../episodes/model/episode.model';
 
 @Component({
   selector: 'app-season-detail',
@@ -28,9 +28,9 @@ export class SeasonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.id = Number(params.id);
-      this.season = this.seasonsService.getSeasonById(this.id);
-      this.serie = this.seriesService.getSerieById(this.season.fkSerie);
-      this.episodes = this.episodesService.getEpisodesBySeasonId(this.id);
+      this.season = this.seasonsService.getById(this.id);
+      this.serie = this.seriesService.getById(this.season.fkSerie);
+      this.episodes = this.episodesService.getByIdSeason(this.id);
     });
   }
 

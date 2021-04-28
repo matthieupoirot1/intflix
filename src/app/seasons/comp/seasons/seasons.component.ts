@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Season} from '../shared/seasons/season.model';
-import {SeasonsService} from '../shared/seasons/seasons.service';
+import {Season} from '../../model/season.model';
+import {SeasonsService} from '../../service/seasons.service';
 
 @Component({
   selector: 'app-seasons',
@@ -19,7 +19,7 @@ export class SeasonsComponent implements OnInit {
     if (!this.idSerie) {
       this.seasons = this.seasonsService.getAll();
     }else{
-      this.seasons = this.seasonsService.getSeasonsBySerieId(this.idSerie);
+      this.seasons = this.seasonsService.getByIdSerie(this.idSerie);
     }
   }
 

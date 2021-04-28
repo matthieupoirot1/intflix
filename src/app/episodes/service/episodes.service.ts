@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Episode} from './episode.model';
-import {Season} from '../seasons/season.model';
+import {Episode} from '../model/episode.model';
+import {Season} from '../../seasons/model/season.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,15 +38,33 @@ export class EpisodesService {
   ];
   constructor() { }
 
-  getEpisodesBySeasonId(fkSeason: number): Episode[]{
+  getAll(): Episode[]{
+    return this.episodes;
+  }
+
+  getById(id: number): Episode{
+    return this.episodes.find((episode) => {
+      return episode.id === id;
+    }) ?? this.episodes[0];
+  }
+
+  getByIdSeason(fkSeason: number): Episode[]{
     return this.episodes.filter((episode) => {
       return episode.fkSeason === fkSeason;
     });
   }
 
   toogleSeenStatus(episodeId: number): void {
-    console.log(`toogling episode ${episodeId} seen status : before : ${this.episodes[episodeId - 1].seen}`);
     this.episodes[episodeId - 1].seen = !(this.episodes[episodeId - 1].seen);
-    console.log(`after : ${this.episodes[episodeId - 1].seen}`);
   }
 }
+
+// "layout/header"
+// "layout/footer"
+// (season) si vous l'avez pas
+// "season-detail"
+// (serie) si vous l'avez pas
+// "serie-detail"
+// vous créez ces components
+// ex : ng g c layout/header
+// ex 2 : ng g c season-detail

@@ -11,6 +11,9 @@
         <a [ngClass]="{status: true, seen:episode.seen, notSeen:!episode.seen}" (click)="changeSeenState(episode.id)">
           {{episode.seen ? "Vu" : "Pas vu"}}
         </a>
+        <a routerLink="/episodes/{{episode.id}}/react">
+          Modifier
+        </a>
       </td>
     </tr>
   </table>

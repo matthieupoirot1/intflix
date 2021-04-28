@@ -1,0 +1,18 @@
+<form id="inscriptionForm" (ngSubmit)="onSubmit()">
+  <input type="text" [formControl]="formLogin" placeholder="m.dupont">
+  <input type="password" [formControl]="formPswd" placeholder="*******">
+  <input type="text" [formControl]="formEmail" placeholder="test@test.com">
+  <div *ngIf="formEmail.errors?.email && (formEmail.dirty || formEmail.touched)">
+    Veuillez entrer une adresse email valide.
+  </div>
+  <textarea rows="4" cols="50" [formControl]="formBio">
+    This is the coolest bio ever written !
+  </textarea>
+  <input type="submit" [disabled]="formEmail.errors?.email || formEmail.value.length <= 0" value="S'inscrire">
+</form>
+
+<div>
+  <h1>{{formLogin.value}}</h1>
+  <h2>{{formEmail.value}}</h2>
+  <p>{{formBio.value}}</p>
+</div>

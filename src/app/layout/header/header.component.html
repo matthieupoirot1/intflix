@@ -9,7 +9,7 @@
   </div>
   <div class="authActions" *ngIf="!authService.isAuth; else logOut">
       <span (click)="signInClick()">Connexion</span>
-      <span>Inscription</span>
+      <a routerLink="/signup">Inscription</a>
   </div>
   <ng-template #logOut>
     <div class="authActions">
