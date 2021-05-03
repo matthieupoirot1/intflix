@@ -7,13 +7,17 @@ import {ApiService} from '../../shared/api/api.service';
 })
 export class SeriesService {
 
-  public series: Serie[] = [];
+  public series: Serie[] = [
+    {id: 1, title: 'Game of Thrones'},
+    {id: 2, title: 'Dynasty'},
+    {id: 3, title: 'The Last Kingdom'},
+  ];
   constructor(private apiService: ApiService) {
-    this.refreshFromApi();
+    // this.refreshFromApi();
   }
 
   refreshFromApi(): void{
-    this.apiService.getData('/series').subscribe((series: Serie[]) => {
+    this.apiService.getData('series.json').subscribe((series: Serie[]) => {
       this.series = series;
     });
   }

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Episode} from '../../model/episode.model';
 import {ActivatedRoute, Route} from '@angular/router';
 import {EpisodesService} from '../../service/episodes.service';
-import {of, timer} from 'rxjs';
+import {Observable, of, timer} from 'rxjs';
 
 @Component({
   selector: 'app-edit-episode',
@@ -11,7 +11,7 @@ import {of, timer} from 'rxjs';
 })
 export class EditEpisodeComponent implements OnInit {
   public id!: number;
-  public episodeModel !: Episode;
+  public episodeModel !: Observable<Episode>;
   public nbSecondes = 1;
 
   constructor(private route: ActivatedRoute, private episodeService: EpisodesService) { }
@@ -19,7 +19,6 @@ export class EditEpisodeComponent implements OnInit {
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') ?? '1', 10);
     this.episodeModel = this.episodeService.getById(this.id);
-
     const myObservable = timer(0, 1000);
 
     const mySubscription = myObservable.subscribe({
@@ -40,7 +39,6 @@ export class EditEpisodeComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(JSON.stringify(this.episodeService.getById(this.id)));
   }
 
 }

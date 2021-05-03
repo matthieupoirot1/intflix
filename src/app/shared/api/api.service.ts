@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class ApiService {
 
-  API_URL = 'http://104.238.188.46:3000';
+  API_URL = 'https://intflix-nimes-default-rtdb.europe-west1.firebasedatabase.app/';
 
   constructor(private http: HttpClient) { }
 

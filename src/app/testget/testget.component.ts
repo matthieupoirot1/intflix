@@ -15,9 +15,9 @@ export class TestgetComponent implements OnInit {
   ngOnInit(): void {}
 
   getData(): void {
-    this.http.get<Post[]>(this.API_URL, {observe: 'body', params: {userId : '2'}})
+    this.http.get(this.API_URL, {observe: 'events', reportProgress: true})
       .subscribe((value) => {
-      this.response = value || [];
+      // this.response = value || [];
       console.log(value);
     });
     // this.http.get<Post[]>(this.API_URL, {observe: 'body'}).subscribe((value) => {

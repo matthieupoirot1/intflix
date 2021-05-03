@@ -30,7 +30,9 @@ export class SeasonDetailComponent implements OnInit {
       this.id = Number(params.id);
       this.season = this.seasonsService.getById(this.id);
       this.serie = this.seriesService.getById(this.season.fkSerie);
-      this.episodes = this.episodesService.getByIdSeason(this.id);
+      this.episodesService.getByIdSeason(this.id).subscribe((episodes) => {
+        this.episodes = episodes;
+      });
     });
   }
 
@@ -38,4 +40,7 @@ export class SeasonDetailComponent implements OnInit {
     this.episodesService.toogleSeenStatus(episodeId);
   }
 
+  clickToPushEp(): void {
+    this.episodesService.pushToDB();
+  }
 }

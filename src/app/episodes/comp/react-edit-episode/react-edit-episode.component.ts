@@ -19,8 +19,10 @@ export class ReactEditEpisodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') ?? '1', 10);
-    this.episodeModel = this.episodeService.getById(this.id);
-    this.formTitle = new FormControl(this.episodeModel.title);
+    this.episodeService.getById(this.id).subscribe((episode) => {
+      this.episodeModel = episode;
+      this.formTitle = new FormControl(this.episodeModel.title);
+    });
 
     this.formTitle.valueChanges.subscribe((value: string) => {
       console.log(this.formTitle.value);
